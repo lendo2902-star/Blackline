@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="Premium haircuts, fades and beard grooming. Book your next appointment today.">
+
+  <title>BLACKLINE | Premium Barbershop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #101010;
+      --surface: #191919;
+      --text: #f5f2ed;
+      --muted: #aaa6a0;
+      --gold: #c9a66b;
+      --line: #303030;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 18px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-intro {
+      max-width: 570px;
+      color: var(--muted);
+      margin-bottom: 45px;
+    }
+
+    /* Navigation */
+
+    header {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(16, 16, 16, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 29px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: white;
+      padding: 8px 12px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* Buttons */
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 23px;
+      background: var(--gold);
+      color: #15120e;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid var(--gold);
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: #777;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(10,10,10,.98) 0%,
+        rgba(10,10,10,.86) 43%, rgba(10,10,10,.2) 100%),
+        url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85')
+        center 42% / cover no-repeat;
+    }
+
+    .hero-content {
+      padding: 90px 0;
+      max-width: 680px;
+    }
+
+    .hero h1 {
+      font-size: clamp(54px, 9vw, 100px);
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 470px;
+      color: #c4c0ba;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-note {
+      margin-top: 50px;
+      color: #d2ccc3;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 450px;
+      border: 1px solid #39332a;
+      padding: 10px;
+    }
+
+    .about-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .feature {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .feature strong {
+      display: block;
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    .feature span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Services */
+
+    .services {
+      background: #151515;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--bg);
+      padding: 28px;
+      border: 1px solid var(--line);
+      transition: border-color .2s, transform .2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .service-icon {
+      color: var(--gold);
+      font-size: 25px;
+    }
+
+    .price {
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 27px;
+      white-space: nowrap;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 62px;
+      margin-bottom: 18px;
+    }
+
+    .duration {
+      font-size: 11px;
+      color: #8d8881;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    /* Gallery */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      background: var(--surface);
+      aspect-ratio: 4 / 5;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      transition: transform .5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Booking banner */
+
+    .booking {
+      padding: 75px 0;
+      text-align: center;
+      background:
+        linear-gradient(rgba(10,10,10,.87), rgba(10,10,10,.9)),
+        url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=80')
+        center / cover;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .booking h2 {
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .booking p {
+      color: #c4c0ba;
+      margin: 0 auto 27px;
+      max-width: 530px;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-copy {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      margin: 23px 0;
+    }
+
+    .contact-item .symbol {
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hours {
+      background: var(--surface);
+      padding: 30px;
+      border: 1px solid var(--line);
+    }
+
+    .hours h3 {
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .hours-row span:last-child {
+      color: var(--gold);
+      text-align: right;
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer p, footer a {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    /* Floating WhatsApp */
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 90;
+      background: #c9a66b;
+      color: #101010;
+      border-radius: 3px;
+      padding: 12px 17px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 5px 25px #0007;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #151515;
+        padding: 25px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links .btn {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: 580px;
+        background-position: 58% center;
+      }
+
+      .hero h1 {
+        font-size: clamp(52px, 13vw, 76px);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-image {
+        height: 330px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card p {
+        min-height: 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-item:last-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 16 / 9;
+      }
+
+      .booking {
+        padding: 65px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">BLACK<span>LINE</span></a>
+
+      <button class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Precision. Style. Confidence.</div>
+
+          <h1>YOUR STYLE.<br>YOUR <span>STANDARD.</span></h1>
+
+          <p>
+            More than a haircut. Experience precise fades,
+            sharp beard work and a look that speaks for itself.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Book Your Cut ↗</a>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
+          </div>
+
+          <div class="hero-note">
+            Premium grooming · Personal service · Timeless style
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85"
+            alt="Barber working on a client's haircut"
+            loading="lazy">
+        </div>
+
+        <div class="about-copy">
+          <div class="eyebrow">Welcome to BLACKLINE</div>
+          <h2>DETAILS MAKE<br>THE DIFFERENCE.</h2>
+
+          <p>
+            We believe a great haircut is about more than
+            looking good. It's about attention to detail,
+            quality service and finding a style that suits you.
+          </p>
+
+          <p>
+            From clean fades to classic cuts and precise beard
+            trims, every appointment is focused on the finish.
+          </p>
+
+          <div class="features">
+            <div class="feature">
+              <strong>Precision</strong>
+              <span>Clean cuts and sharp details</span>
+            </div>
+            <div class="feature">
+              <strong>Your Style</strong>
+              <span>Personalised grooming</span>
+            </div>
+            <div class="feature">
+              <strong>Quality</strong>
+              <span>Care in every detail</span>
+            </div>
+            <div class="feature">
+              <strong>Comfort</strong>
+              <span>A relaxed experience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="eyebrow">What We Offer</div>
+        <h2>OUR SERVICES</h2>
+        <p class="section-intro">
+          Find your next look. Choose your service and
+          get in touch to arrange your appointment.
+        </p>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-icon">✂</span>
+              <span class="price">€20</span>
+            </div>
+            <h3>Classic Haircut</h3>
+            <p>A clean, tailored haircut finished to suit your style.</p>
+            <div class="duration">30 MINUTES</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-icon">◈</span>
+              <span class="price">€25</span>
+            </div>
+            <h3>Skin Fade</h3>
+            <p>A sharp, seamless fade with clean lines and a precise finish.</p>
+            <div class="duration">40 MINUTES</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-icon">▰</span>
+              <span class="price">€12</span>
+            </div>
+            <h3>Beard Trim</h3>
+            <p>Shape, define and tidy your beard for a fresh appearance.</p>
+            <div class="duration">20 MINUTES</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-icon">✦</span>
+              <span class="price">€32</span>
+            </div>
+            <h3>Haircut & Beard</h3>
+            <p>A complete grooming session for a sharp, coordinated look.</p>
+            <div class="duration">50 MINUTES</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-icon">⌁</span>
+              <span class="price">€15</span>
+            </div>
+            <h3>Buzz Cut</h3>
+            <p>A simple, even cut with clean edges and a neat finish.</p>
+            <div class="duration">20 MINUTES</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-icon">◇</span>
+              <span class="price">€8</span>
+            </div>
+            <h3>Line-Up</h3>
+            <p>Refresh your hairline and edges for a clean, defined look.</p>
+            <div class="duration">15 MINUTES</div>
+          </article>
+        </div>
+
+        <p style="color:var(--muted);font-size:12px;margin-top:22px">
+          Demo prices only — confirm actual prices with the business.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="eyebrow">The Craft</div>
+        <h2>THE GALLERY</h2>
+        <p class="section-intro">
+          A look at the craft, the detail and the style.
+          Replace these sample photos with the shop's own work.
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=700&q=85"
+              alt="Barber styling a haircut"
+              loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=85"
+              alt="Modern barbershop interior"
+              loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=700&q=85"
+              alt="Barber carefully cutting hair"
+              loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking">
+      <div class="container">
+        <div class="eyebrow">Your Next Look Starts Here</div>
+        <h2>READY FOR A FRESH CUT?</h2>
+        <p>
+          Get in touch to ask about availability and book
+          your next appointment.
+        </p>
+        <a href="#contact" class="btn">Let's Get You Booked ↗</a>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Find Us</div>
+          <h2>VISIT THE SHOP</h2>
+          <p class="contact-copy">
+            Questions about a service or want to arrange
+            a cut? Contact us using the details below.
+          </p>
+
+          <div class="contact-item">
+            <div class="symbol">⌖</div>
+            <div>
+              <strong>Address</strong>
+              <span>YOUR STREET, YOUR CITY</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="symbol">☎</div>
+            <div>
+              <strong>Phone / WhatsApp</strong>
+              <a href="tel:+490000000000">+49 YOUR PHONE NUMBER</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="symbol">◎</div>
+            <div>
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Follow us on Instagram ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hours">
+          <h3>OPENING HOURS</h3>
+
+          <div class="hours-row">
+            <span>Monday</span><span>Closed</span>
+          </div>
+          <div class="hours-row">
+            <span>Tuesday – Friday</span><span>09:00 – 19:00</span>
+          </div>
+          <div class="hours-row">
+            <span>Saturday</span><span>09:00 – 16:00</span>
+          </div>
+          <div class="hours-row">
+            <span>Sunday</span><span>Closed</span>
+          </div>
+
+          <p style="font-size:12px;color:var(--muted);margin-top:22px">
+            Hours shown are examples. Please confirm before visiting.
+          </p>
+
+          <a href="#" class="btn" id="bookingButton"
+             style="width:100%;margin-top:25px">
+            Book via WhatsApp ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="#home" class="logo">BLACK<span>LINE</span></a>
+      <p>© <span id="year"></span> BLACKLINE BARBERSHOP</p>
+      <div style="display:flex;gap:20px">
+        <a href="#contact">Contact</a>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#contact" class="whatsapp" aria-label="Book an appointment">
+    BOOK NOW ↗
+  </a>
+
+  <script>
+    // Navigation menu for mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation' : 'Open navigation'
+      );
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Automatic copyright year
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    // IMPORTANT: Replace with the real WhatsApp number.
+    // Use country code and digits only, without +, spaces or brackets.
+    const whatsappNumber = '490000000000';
+
+    const bookingLink =
+      'https://wa.me/' + whatsappNumber +
+      '?text=' + encodeURIComponent(
+        'Hello! I would like to book a barbershop appointment.'
+      );
+
+    document.getElementById('bookingButton').href = bookingLink;
+  </script>
+
+</body>
+</html>
